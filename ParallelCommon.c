@@ -24,18 +24,18 @@ static void* worker_func(void* arg) {
         switch (it.type) {
             case OP_MEMBER:
                 result = ops->safe_member(it.value);
-                printf("[Thread %d] MEMBER(%d) -> %d\n", a->tid, it.value, result);
+                //printf("[Thread %d] MEMBER(%d) -> %d\n", a->tid, it.value, result);
                 break;
             case OP_INSERT:
                 result = ops->safe_insert(it.value);
-                printf("[Thread %d] INSERT(%d) -> %d\n", a->tid, it.value, result);
+                //printf("[Thread %d] INSERT(%d) -> %d\n", a->tid, it.value, result);
                 break;
             case OP_DELETE:
                 result = ops->safe_delete(it.value);
-                printf("[Thread %d] DELETE(%d) -> %d\n", a->tid, it.value, result);
+                //printf("[Thread %d] DELETE(%d) -> %d\n", a->tid, it.value, result);
                 break;
-            default:
-                fprintf(stderr, "[Thread %d] Unknown operation type %d\n", a->tid, it.type);
+
+        (void) result;
         }
     }
     pthread_barrier_wait(&end_barrier);

@@ -12,7 +12,9 @@ add_executable(ConcurrentLinkedList main.c
         Rwlock.c
         ParallelCommon.c
         ParallelCommon.h
-        ParallelRwlock.c)
+        ParallelRwlock.c
+        Mutex.c
+        ParallelMutex.c)
 
 # Link pthread library
 find_package(Threads REQUIRED)

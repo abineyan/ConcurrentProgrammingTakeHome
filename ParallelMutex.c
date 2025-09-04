@@ -1,3 +1,4 @@
+// ParallelRwlock.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -6,7 +7,7 @@
 #include "ParallelCommon.h"
 
 // bring in ops table from Rwlock.c
-extern sync_ops_t rwlock_ops;
+extern sync_ops_t mutex_ops;
 
 int main(int argc, char* argv[]) {
     if (argc != 7) {
@@ -40,7 +41,7 @@ int main(int argc, char* argv[]) {
     workload_t wl = generate_workload(m, fM, fI, fD, 0, 65535);
     shuffle_workload(&wl);
 
-    run_parallel(T, &wl, &rwlock_ops);
+    run_parallel(T, &wl, &mutex_ops);
 
 //    if (n <= 20 && wl.size <= 50) {
 //        print_list();
