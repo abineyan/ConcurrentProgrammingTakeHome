@@ -79,7 +79,8 @@ void run_parallel(int T, workload_t *wl, sync_ops_t* ops) {
     for (int t=0; t<T; ++t) pthread_join(ths[t], NULL);
 
     double elapsed = timespec_diff_sec(&t0, &t1);
-    printf("Parallel run: threads=%d m=%zu time_sec=%.6f\n", T, wl->size, elapsed);
+    //printf("Parallel run: threads=%d m=%zu time_sec=%.6f\n", T, wl->size, elapsed);
+    printf("%f\n", elapsed*1000000);
 
     pthread_barrier_destroy(&start_barrier);
     pthread_barrier_destroy(&end_barrier);
