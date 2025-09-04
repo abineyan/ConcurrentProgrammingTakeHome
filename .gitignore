@@ -1,0 +1,13 @@
+Linkedlist.o
+Mutex.o
+ParallelCommon.o
+ParallelMutex.o
+ParallelRwlock.o
+Rwlock.o
+Serial.o
+Workload.o
+cmake-build-debug
+results.csv
+serial
+parallel_rwlock
+parallel_mutex
