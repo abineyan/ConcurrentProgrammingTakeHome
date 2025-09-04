@@ -40,6 +40,7 @@ int main(int argc, char* argv[]) {
         workload_item_t op = workload.items[i];
         switch (op.type) {
             case OP_MEMBER:
+                Member(op.value);
                 //printf("Member(%d) = %d\n", op.value, Member(op.value));
                 break;
             case OP_INSERT:
@@ -47,6 +48,7 @@ int main(int argc, char* argv[]) {
                 //printf("Insert(%d) done\n", op.value);
                 break;
             case OP_DELETE:
+                Delete(op.value);
                 //printf("Delete(%d) = %d\n", op.value, Delete(op.value));
                 break;
         }
