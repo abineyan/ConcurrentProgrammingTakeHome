@@ -16,7 +16,7 @@ implementations=("./serial" "./parallel_rwlock" "./parallel_mutex")
 threads=(0 1 2 4 8)
 
 # Number of runs for averaging
-runs=100
+runs=385
 
 # Loop over cases
 for case_index in "${!cases[@]}"; do
@@ -56,7 +56,7 @@ for case_index in "${!cases[@]}"; do
                 sq=$(echo "$diff * $diff" | bc -l)
                 sqsum=$(echo "$sqsum + $sq" | bc -l)
             done
-            stddev=$(echo "sqrt($sqsum / ${#times[@]})" | bc -l)
+            stddev=$(echo "sqrt($sqsum / (${#times[@]} - 1))" | bc -l)
 
             # Append to CSV
             echo "$case_name,$impl,$t,$avg,$stddev" >> $output_file
