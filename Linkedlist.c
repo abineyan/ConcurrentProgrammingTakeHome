@@ -10,39 +10,48 @@ void list_init(void){
 
 int Member(int value) {
     Node *curr = head;
-    while (curr != NULL) {
-        if (curr->data == value) return 1;
+    while (curr != NULL && curr->data < value) {
         curr = curr->next;
     }
-    return 0;
+    return (curr != NULL && curr->data == value);
 }
 
 int Insert(int value) {
     Node *curr = head;
-    while (curr != NULL) {
+    Node *prev = NULL;
+
+    while (curr != NULL && curr->data < value) {
+        prev = curr;
         curr = curr->next;
     }
+
+    if (curr != NULL && curr->data == value) return 0;
+
     Node *n = (Node*) malloc(sizeof(Node));
     if (!n) return 0;
     n->data = value;
-    n->next = head;
-    head = n;
+    n->next = curr;
+
+    if (prev == NULL) head = n;
+    else prev->next = n;
+
     return 1;
 }
 
 int Delete(int value) {
     Node *curr = head;
     Node *prev = NULL;
-    while (curr !=NULL && curr->data != value) {
+
+    while (curr != NULL && curr->data < value) {
         prev = curr;
         curr = curr->next;
     }
-    if (curr == NULL) return 0;
-    if (prev == NULL) {
-        head = curr->next;
-    } else {
-        prev->next = curr->next;
-    }
+
+    if (curr == NULL || curr->data != value) return 0;
+
+    if (prev == NULL) head = curr->next;
+    else prev->next = curr->next;
+
     free(curr);
     return 1;
 }

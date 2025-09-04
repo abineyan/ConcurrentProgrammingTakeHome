@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
                 printf("Delete(%d) = %d\n", op.value, Delete(op.value));
                 break;
         }
-        print_list(); // show list after every operation
+        print_list();
     }
 
 
