@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
     shuffle_workload(&workload);
 
     //clock_t start = clock();
-    struct timespec t0, t1;
+    struct timespec t0;
     clock_gettime(CLOCK_MONOTONIC, &t0);
 
     struct timeval start, stop;
