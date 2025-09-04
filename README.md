@@ -1,3 +1,44 @@
-gcc -Wall -O2 -pthread ParallelRwlock.c Rwlock.c ParallelCommon.c Linkedlist.c Workload.c -o parallel_rwlock
-gcc -o serial Serial.c Linkedlist.c Workload.c -std=c11 -Wall -Wextra
-gcc -Wall -O2 -pthread ParallelMutex.c Mutex.c ParallelCommon.c Linkedlist.c Workload.c -o parallel_mutex
+# Concurrent Linked List Assignment
+
+## How to Run
+
+### Build the Programs
+In the project directory,
+First, clean any previous builds by running:
+```bash
+make clean
+```
+Then, compile the programs by executing:
+```bash
+make
+```
+
+This will compile and create the following executables:
+
+* serial
+* parallel_mutex
+* parallel_rwlock
+
+### Run All Experiments
+
+Execute the provided script:
+
+```bash
+./run_assignment.sh
+```
+
+This script will:
+
+* Run the serial, mutex-based, and rwlock-based implementations
+* Test with multiple thread counts (1, 2, 4, 8)
+* Repeat each case multiple times to compute average and standard deviation
+
+### View Results
+
+After the script finishes, the results will be stored in:
+
+text
+results.csv
+
+
+You can open this file in Excel, Google Sheets, or any CSV viewer to analyze the data.
